@@ -1,4 +1,4 @@
-package ir.ac.kntu;
+package ir.ac.kntu.gamelogic;
 
 import java.util.Random;
 
