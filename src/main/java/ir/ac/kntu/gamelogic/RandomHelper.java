@@ -3,7 +3,7 @@ package ir.ac.kntu.gamelogic;
 import java.util.Random;
 
 public final class RandomHelper {
-    private static final Random RANDOM_GENERATOR = new Random(300);
+    private static final Random RANDOM_GENERATOR = new Random(System.currentTimeMillis());
 
     private RandomHelper() {
 
