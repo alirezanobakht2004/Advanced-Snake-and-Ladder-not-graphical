@@ -17,8 +17,12 @@ public class Board {
 
     public static void boardDraw() {
         gameBoard = new char[size][size];
-        gameBoard[0][size - 1] = '$';
         positionChange();
+        gameBoard[0][size - 1] = '$';
+        if (Player.getI() != Board.getGameBoard().length - 1 && Player.getJ() != 0) {
+            gameBoard[Board.getGameBoard().length - 1][0] = '*';
+
+        }
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (gameBoard[i][j] == 0) {
@@ -42,9 +46,8 @@ public class Board {
         boardDraw();
     }
 
-    public static void positionChange(){
-        gameBoard[Player.getI()][Player.getJ()]='*';
+    public static void positionChange() {
+        gameBoard[Player.getI()][Player.getJ()] = 'P';
 
-        
     }
 }
