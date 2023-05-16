@@ -2,7 +2,7 @@ package ir.ac.kntu.gamelogic;
 
 public class Dice {
     public static void diceChange() {
-        int face = RandomHelper.nextInt(8);
+        int face = RandomHelper.nextInt(9);
         switch (face) {
             case 0:
                 System.out.println("Dice: " + DiceFaces.OneLeft);

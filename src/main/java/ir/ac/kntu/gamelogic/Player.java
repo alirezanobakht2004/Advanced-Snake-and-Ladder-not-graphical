@@ -4,7 +4,7 @@ public class Player {
 
     private static int Health = 3;
 
-    private static int i=Board.getGameBoard().length-1;
+    private static int i=Board.getSize()-1;
 
     private static int j=0;
 

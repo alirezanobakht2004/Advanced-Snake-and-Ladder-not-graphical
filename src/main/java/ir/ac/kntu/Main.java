@@ -4,7 +4,7 @@ import ir.ac.kntu.gamelogic.*;
 
 public class Main {
     public static void main(String[] args) {
-        Board.boardSize();
+        Board.boardStart();
         Game.gameStart();
     }
 }
