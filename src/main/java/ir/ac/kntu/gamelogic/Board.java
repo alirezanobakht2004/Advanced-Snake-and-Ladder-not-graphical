@@ -3,13 +3,22 @@ package ir.ac.kntu.gamelogic;
 import java.util.Scanner;
 
 public class Board {
+
     private static char[][] gameBoard;
     private static int size;
+
+    public static void setGameBoard(char[][] gameBoard) {
+        Board.gameBoard = gameBoard;
+    }
+
+    public static char[][] getGameBoard() {
+        return gameBoard;
+    }
 
     public static void boardDraw() {
         gameBoard = new char[size][size];
         gameBoard[0][size - 1] = '$';
-        gameBoard[size - 1][0] = '*';
+        positionChange();
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (gameBoard[i][j] == 0) {
@@ -31,5 +40,11 @@ public class Board {
         int n = input.nextInt();
         size = n;
         boardDraw();
+    }
+
+    public static void positionChange(){
+        gameBoard[Player.getI()][Player.getJ()]='*';
+
+        
     }
 }
