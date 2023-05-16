@@ -73,6 +73,7 @@ public class Dice {
                 if (Player.getHealth() < 3) {
                     Player.setHealth(Player.getHealth() + 1);
                 }
+                diceChange();
                 break;
             default:
                 break;

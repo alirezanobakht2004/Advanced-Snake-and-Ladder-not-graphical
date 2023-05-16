@@ -26,22 +26,30 @@ public class Board {
 
     public static void boardDraw() {
         gameBoard = new String[size][size];
-        positionChange();
-        gameBoard[0][size - 1] = "$";
-        if (gameBoard[Board.getGameBoard().length - 1][0] != "P") {
-            gameBoard[Board.getGameBoard().length - 1][0] = "*";
-        }
-        if(Player.getI()==0 && Player.getJ()==size - 1)
-        {
-            System.out.println("\n"+"You Win!"+"\n");
-            System.exit(0);
-        }
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                if (gameBoard[i][j] ==null) {
-                    gameBoard[i][j] = " ";
+                if (gameBoard[i][j] == null) {
+                    gameBoard[i][j] = "";
                 }
-                System.out.print(gameBoard[i][j] + "|");
+            }
+        }
+        positionChange();
+        gameBoard[0][size - 1] = "$";
+        gameBoard[Board.getGameBoard().length - 1][0] = "*";
+        if(Player.getI()==Board.getGameBoard().length - 1 && Player.getJ()==0)
+        {
+            gameBoard[Board.getGameBoard().length - 1][0] = "*P";
+        }
+        if (Player.getI() == 0 && Player.getJ() == size - 1) {
+            System.out.println("\n" + "You Win!" + "\n");
+            System.exit(0);
+        }
+        for (int o = 0; o < size; o++) {
+            for (int k = 0; k < size; k++) {
+                if (gameBoard[o][k] == "") {
+                    gameBoard[o][k] = " ";
+                }
+                System.out.print(gameBoard[o][k] + "|");
             }
             System.out.println();
             for (int k = 0; k < 2 * size; k++) {
@@ -65,30 +73,16 @@ public class Board {
     }
 
     public static void positionChange() {
+        gameBoard[Player.getI()][Player.getJ()] += "P";
         OrdinarySnake.setPosition();
-        gameBoard[Player.getI()][Player.getJ()] = "P";
-        gameBoard[OrdinarySnake.getSnakeHeadI()][OrdinarySnake.getSnakeHeadJ()] = "O";
-        gameBoard[OrdinarySnake.getSnakeTailI()][OrdinarySnake.getSnakeTailJ()] = "o";
-        if (OrdinarySnake.getSnakeTailI() == Player.getI() && OrdinarySnake.getSnakeTailJ() == Player.getJ()) {
-            gameBoard[OrdinarySnake.getSnakeTailI()][OrdinarySnake.getSnakeTailJ()] +="P";
-        }
+        gameBoard[OrdinarySnake.getSnakeHeadI()][OrdinarySnake.getSnakeHeadJ()] += "O";
+        gameBoard[OrdinarySnake.getSnakeTailI()][OrdinarySnake.getSnakeTailJ()] += "o";
         WildSnake.setPosition();
-        gameBoard[Player.getI()][Player.getJ()] = "P";
-        gameBoard[WildSnake.getSnakeHeadI()][WildSnake.getSnakeHeadJ()] = "W";
-        gameBoard[WildSnake.getSnakeTailI()][WildSnake.getSnakeTailJ()] = "w";
-        if (WildSnake.getSnakeTailI() == Player.getI() && WildSnake.getSnakeTailJ() == Player.getJ()) {
-            gameBoard[WildSnake.getSnakeTailI()][WildSnake.getSnakeTailJ()] +="P";
-        }
-        if (WildSnake.getSnakeTailI() == OrdinarySnake.getSnakeTailI() && WildSnake.getSnakeTailJ() ==  OrdinarySnake.getSnakeTailJ()) {
-            gameBoard[WildSnake.getSnakeTailI()][WildSnake.getSnakeTailJ()] +="o";
-        }
+        gameBoard[WildSnake.getSnakeHeadI()][WildSnake.getSnakeHeadJ()] += "W";
+        gameBoard[WildSnake.getSnakeTailI()][WildSnake.getSnakeTailJ()] += "w";
         KindSnake.setPosition();
-        gameBoard[Player.getI()][Player.getJ()] = "P";
-        gameBoard[KindSnake.getSnakeHeadI()][KindSnake.getSnakeHeadJ()] = "K";
-        gameBoard[KindSnake.getSnakeTailI()][KindSnake.getSnakeTailJ()] = "k";
-        if (KindSnake.getSnakeTailI() == Player.getI() && KindSnake.getSnakeTailJ() == Player.getJ()) {
-            gameBoard[KindSnake.getSnakeTailI()][KindSnake.getSnakeTailJ()] +="P";
-        }
-        
+        gameBoard[KindSnake.getSnakeHeadI()][KindSnake.getSnakeHeadJ()] += "K";
+        gameBoard[KindSnake.getSnakeTailI()][KindSnake.getSnakeTailJ()] += "k";
+
     }
 }
