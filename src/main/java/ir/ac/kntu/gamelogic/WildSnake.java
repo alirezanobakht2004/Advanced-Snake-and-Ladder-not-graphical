@@ -31,7 +31,7 @@ public class WildSnake {
     public static void setSnakeHeadJ() {
         WildSnake.snakeHeadJ = RandomHelper.nextInt(Board.getSize());
         if (snakeHeadI == 0 && snakeTailJ == Board.getSize() - 1) {
-            setSnakeHeadJ();
+            setPosition();
         }
         if (snakeHeadI == OrdinarySnake.getSnakeHeadI() && snakeHeadJ == OrdinarySnake.getSnakeHeadJ()) {
             setPosition();
@@ -42,7 +42,10 @@ public class WildSnake {
         if (snakeHeadI == OrdinarySnake.getSnakeTailI() && snakeHeadJ == OrdinarySnake.getSnakeTailJ()) {
             setPosition();
         }
-        if (snakeHeadI == KindSnake.getSnakeTailI() && snakeHeadJ == OrdinarySnake.getSnakeTailJ()) {
+        if (snakeHeadI == KindSnake.getSnakeTailI() && snakeHeadJ == KindSnake.getSnakeTailJ()) {
+            setPosition();
+        }
+        if (snakeHeadI == Player.getI() && snakeHeadJ == Player.getJ()) {
             setPosition();
         }
     }
@@ -66,12 +69,10 @@ public class WildSnake {
         } else {
             WildSnake.snakeTailJ = RandomHelper.nextInt(Board.getSize() - 1) + 1;
         }
-        if(snakeTailI==OrdinarySnake.getSnakeHeadI() && snakeTailJ==OrdinarySnake.getSnakeTailJ())
-        {
+        if (snakeTailI == OrdinarySnake.getSnakeHeadI() && snakeTailJ == OrdinarySnake.getSnakeTailJ()) {
             setPosition();
         }
-        if(snakeTailI==KindSnake.getSnakeHeadI() && snakeTailJ==KindSnake.getSnakeTailJ())
-        {
+        if (snakeTailI == KindSnake.getSnakeHeadI() && snakeTailJ == KindSnake.getSnakeHeadJ()) {
             setPosition();
         }
     }

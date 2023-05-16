@@ -10,7 +10,7 @@ public class Game {
         String dice = input.nextLine();
         if (dice.equals("DICE")) {
             Dice.diceChange();
-            System.out.println("Health: "+Player.getHealth());
+            System.out.println("Health: " + Player.getHealth());
             Board.boardDraw();
             gameStart();
         }
