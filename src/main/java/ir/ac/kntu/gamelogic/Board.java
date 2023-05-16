@@ -28,11 +28,14 @@ public class Board {
         gameBoard = new char[size][size];
         positionChange();
         gameBoard[0][size - 1] = '$';
-        if (Player.getI() != Board.getGameBoard().length - 1 && Player.getJ() != 0) {
+        if (gameBoard[Board.getGameBoard().length - 1][0] != 'P') {
             gameBoard[Board.getGameBoard().length - 1][0] = '*';
-
         }
-
+        if(Player.getI()==0 && Player.getJ()==size - 1)
+        {
+            System.out.println("\n"+"You Win!"+"\n");
+            System.exit(0);
+        }
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (gameBoard[i][j] == 0) {
@@ -64,6 +67,8 @@ public class Board {
         gameBoard[Player.getI()][Player.getJ()] = 'P';
         gameBoard[OrdinarySnake.getSnakeHeadI()][OrdinarySnake.getSnakeHeadJ()] = 'O';
         gameBoard[OrdinarySnake.getSnakeTailI()][OrdinarySnake.getSnakeTailJ()] = 'o';
-
+        if (OrdinarySnake.getSnakeTailI() == Player.getI() && OrdinarySnake.getSnakeTailJ() == Player.getJ()) {
+            gameBoard[OrdinarySnake.getSnakeTailI()][OrdinarySnake.getSnakeTailJ()] = 'P';
+        }
     }
 }

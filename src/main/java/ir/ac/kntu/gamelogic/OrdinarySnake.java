@@ -55,9 +55,15 @@ public class OrdinarySnake extends Snake {
     public static void setSnakeTailJ() {
         if (OrdinarySnake.snakeTailI != Board.getSize() - 1) {
             OrdinarySnake.snakeTailJ = RandomHelper.nextInt(Board.getSize());
-
         } else {
-            OrdinarySnake.snakeTailJ = RandomHelper.nextInt(Board.getSize() - 1)+1;
+            OrdinarySnake.snakeTailJ = RandomHelper.nextInt(Board.getSize() - 1) + 1;
+        }
+    }
+
+    public static void bite() {
+        if (Player.getI() == snakeHeadI && Player.getJ() == snakeHeadJ) {
+            Player.setI(snakeTailI);
+            Player.setJ(snakeTailJ);
         }
     }
 }
