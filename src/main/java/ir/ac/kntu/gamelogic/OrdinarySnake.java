@@ -1,6 +1,6 @@
 package ir.ac.kntu.gamelogic;
 
-public class OrdinarySnake extends Snake {
+public class OrdinarySnake {
 
     private static int snakeHeadI;
 
@@ -9,14 +9,6 @@ public class OrdinarySnake extends Snake {
     private static int snakeTailI;
 
     private static int snakeTailJ;
-
-    public OrdinarySnake(int snakeHeadI, int snakeHeadJ, int snakeTailI, int snakeTailJ) {
-        super(snakeHeadI, snakeHeadJ, snakeTailI, snakeTailJ);
-        OrdinarySnake.snakeHeadI = snakeHeadI;
-        OrdinarySnake.snakeHeadJ = snakeHeadJ;
-        OrdinarySnake.snakeTailI = snakeTailI;
-        OrdinarySnake.snakeTailJ = snakeTailJ;
-    }
 
     public static void setPosition() {
         setSnakeTailI();

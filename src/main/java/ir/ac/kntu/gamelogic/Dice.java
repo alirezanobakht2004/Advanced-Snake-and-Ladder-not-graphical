@@ -10,6 +10,7 @@ public class Dice {
                     Player.setJ(Player.getJ() - 1);
                 }
                 OrdinarySnake.bite();
+                WildSnake.bite();
                 break;
             case 1:
                 System.out.println("Dice: " + DiceFaces.TwoLeft);
@@ -17,6 +18,7 @@ public class Dice {
                     Player.setJ(Player.getJ() - 2);
                 }
                 OrdinarySnake.bite();
+                WildSnake.bite();
                 break;
             case 2:
                 System.out.println("Dice: " + DiceFaces.OneRight);
@@ -24,6 +26,7 @@ public class Dice {
                     Player.setJ(Player.getJ() + 1);
                 }
                 OrdinarySnake.bite();
+                WildSnake.bite();
                 break;
             case 3:
                 System.out.println("Dice: " + DiceFaces.TwoRight);
@@ -31,6 +34,7 @@ public class Dice {
                     Player.setJ(Player.getJ() + 2);
                 }
                 OrdinarySnake.bite();
+                WildSnake.bite();
                 break;
             case 4:
                 System.out.println("Dice: " + DiceFaces.OneUp);
@@ -38,6 +42,7 @@ public class Dice {
                     Player.setI(Player.getI() - 1);
                 }
                 OrdinarySnake.bite();
+                WildSnake.bite();
                 break;
             case 5:
                 System.out.println("Dice: " + DiceFaces.TwoUp);
@@ -45,6 +50,7 @@ public class Dice {
                     Player.setI(Player.getI() - 2);
                 }
                 OrdinarySnake.bite();
+                WildSnake.bite();
                 break;
             case 6:
                 System.out.println("Dice: " + DiceFaces.OneDown);
@@ -52,6 +58,7 @@ public class Dice {
                     Player.setI(Player.getI() + 1);
                 }
                 OrdinarySnake.bite();
+                WildSnake.bite();
                 break;
             case 7:
                 System.out.println("Dice: " + DiceFaces.TwoDown);
@@ -59,6 +66,7 @@ public class Dice {
                     Player.setI(Player.getI() + 2);
                 }
                 OrdinarySnake.bite();
+                WildSnake.bite();
                 break;
             case 8:
                 System.out.println("Dice: " + DiceFaces.ExtraHealth);
