@@ -2,79 +2,30 @@ package ir.ac.kntu.gamelogic;
 
 public class Dice {
     public static void diceChange() {
-        int face = RandomHelper.nextInt(9);
-        switch (face) {
+        switch (RandomHelper.nextInt(9)) {
             case 0:
-                System.out.println("Dice: " + DiceFaces.OneLeft);
-                if (Player.getJ() - 1 >= 0) {
-                    Player.setJ(Player.getJ() - 1);
-                }
-                OrdinarySnake.bite();
-                WildSnake.bite();
-                KindSnake.bite();
+                playerChangeZero();
                 break;
             case 1:
-                System.out.println("Dice: " + DiceFaces.TwoLeft);
-                if (Player.getJ() - 2 >= 0) {
-                    Player.setJ(Player.getJ() - 2);
-                }
-                OrdinarySnake.bite();
-                WildSnake.bite();
-                KindSnake.bite();
+                playerChangeOne();
                 break;
             case 2:
-                System.out.println("Dice: " + DiceFaces.OneRight);
-                if (Player.getJ() + 1 < Board.getGameBoard().length) {
-                    Player.setJ(Player.getJ() + 1);
-                }
-                OrdinarySnake.bite();
-                WildSnake.bite();
-                KindSnake.bite();
+                playerChangeTwo();
                 break;
             case 3:
-                System.out.println("Dice: " + DiceFaces.TwoRight);
-                if (Player.getJ() + 2 < Board.getGameBoard().length) {
-                    Player.setJ(Player.getJ() + 2);
-                }
-                OrdinarySnake.bite();
-                WildSnake.bite();
-                KindSnake.bite();
+                playerChangeThree();
                 break;
             case 4:
-                System.out.println("Dice: " + DiceFaces.OneUp);
-                if (Player.getI() - 1 >= 0) {
-                    Player.setI(Player.getI() - 1);
-                }
-                OrdinarySnake.bite();
-                WildSnake.bite();
-                KindSnake.bite();
+                playerChangeFour();
                 break;
             case 5:
-                System.out.println("Dice: " + DiceFaces.TwoUp);
-                if (Player.getI() - 2 >= 0) {
-                    Player.setI(Player.getI() - 2);
-                }
-                OrdinarySnake.bite();
-                WildSnake.bite();
-                KindSnake.bite();
+                playerChangeFive();
                 break;
             case 6:
-                System.out.println("Dice: " + DiceFaces.OneDown);
-                if (Player.getI() + 1 < Board.getGameBoard().length) {
-                    Player.setI(Player.getI() + 1);
-                }
-                OrdinarySnake.bite();
-                WildSnake.bite();
-                KindSnake.bite();
+                playerChangeSix();
                 break;
             case 7:
-                System.out.println("Dice: " + DiceFaces.TwoDown);
-                if (Player.getI() + 2 < Board.getGameBoard().length) {
-                    Player.setI(Player.getI() + 2);
-                }
-                OrdinarySnake.bite();
-                WildSnake.bite();
-                KindSnake.bite();
+                playerChangeSeven();
                 break;
             case 8:
                 System.out.println("Dice: " + DiceFaces.ExtraHealth);
@@ -86,5 +37,75 @@ public class Dice {
             default:
                 break;
         }
+    }
+
+    public static void bite() {
+        OrdinarySnake.bite();
+        WildSnake.bite();
+        KindSnake.bite();
+    }
+
+    public static void playerChangeZero() {
+        System.out.println("Dice: " + DiceFaces.OneLeft);
+        if (Player.getJ() - 1 >= 0) {
+            Player.setJ(Player.getJ() - 1);
+        }
+        bite();
+    }
+
+    public static void playerChangeOne() {
+        System.out.println("Dice: " + DiceFaces.TwoLeft);
+        if (Player.getJ() - 2 >= 0) {
+            Player.setJ(Player.getJ() - 2);
+        }
+        bite();
+    }
+
+    public static void playerChangeTwo() {
+        System.out.println("Dice: " + DiceFaces.OneRight);
+        if (Player.getJ() + 1 < Board.getGameBoard().length) {
+            Player.setJ(Player.getJ() + 1);
+        }
+        bite();
+    }
+
+    public static void playerChangeThree() {
+        System.out.println("Dice: " + DiceFaces.TwoRight);
+        if (Player.getJ() + 2 < Board.getGameBoard().length) {
+            Player.setJ(Player.getJ() + 2);
+        }
+        bite();
+    }
+
+    public static void playerChangeFour() {
+        System.out.println("Dice: " + DiceFaces.OneUp);
+        if (Player.getI() - 1 >= 0) {
+            Player.setI(Player.getI() - 1);
+        }
+        bite();
+    }
+
+    public static void playerChangeFive() {
+        System.out.println("Dice: " + DiceFaces.TwoUp);
+        if (Player.getI() - 2 >= 0) {
+            Player.setI(Player.getI() - 2);
+        }
+        bite();
+    }
+
+    public static void playerChangeSix() {
+        System.out.println("Dice: " + DiceFaces.OneDown);
+        if (Player.getI() + 1 < Board.getGameBoard().length) {
+            Player.setI(Player.getI() + 1);
+        }
+        bite();
+    }
+
+    public static void playerChangeSeven() {
+        System.out.println("Dice: " + DiceFaces.TwoDown);
+        if (Player.getI() + 2 < Board.getGameBoard().length) {
+            Player.setI(Player.getI() + 2);
+        }
+        bite();
     }
 }

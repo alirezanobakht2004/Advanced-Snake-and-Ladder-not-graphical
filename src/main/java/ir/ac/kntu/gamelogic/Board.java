@@ -49,7 +49,7 @@ public class Board {
         }
         for (int o = 0; o < size; o++) {
             for (int k = 0; k < size; k++) {
-                if (gameBoard[o][k] == "") {
+                if (gameBoard[o][k].equals("")) {
                     gameBoard[o][k] = " ";
                 }
                 System.out.print(gameBoard[o][k] + "|");

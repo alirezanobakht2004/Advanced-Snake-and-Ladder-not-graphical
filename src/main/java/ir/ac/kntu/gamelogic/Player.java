@@ -2,7 +2,7 @@ package ir.ac.kntu.gamelogic;
 
 public class Player {
 
-    private static int Health = 3;
+    private static int playerHealth = 3;
 
     private static int i = Board.getSize() - 1;
 
@@ -25,10 +25,10 @@ public class Player {
     }
 
     public static int getHealth() {
-        return Health;
+        return playerHealth;
     }
 
     public static void setHealth(int health) {
-        Health = health;
+        playerHealth = health;
     }
 }
