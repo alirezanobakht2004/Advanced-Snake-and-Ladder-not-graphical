@@ -59,6 +59,8 @@ public class Board {
         System.out.println("Health: " + Player.getHealth());
         OrdinarySnake.setSnakeHeadI();
         OrdinarySnake.setSnakeHeadJ();
+        KindSnake.setSnakeHeadI();
+        KindSnake.setSnakeHeadJ();
         boardDraw();
     }
 
@@ -80,5 +82,13 @@ public class Board {
         if (WildSnake.getSnakeTailI() == OrdinarySnake.getSnakeTailI() && WildSnake.getSnakeTailJ() ==  OrdinarySnake.getSnakeTailJ()) {
             gameBoard[WildSnake.getSnakeTailI()][WildSnake.getSnakeTailJ()] +="o";
         }
+        KindSnake.setPosition();
+        gameBoard[Player.getI()][Player.getJ()] = "P";
+        gameBoard[KindSnake.getSnakeHeadI()][KindSnake.getSnakeHeadJ()] = "K";
+        gameBoard[KindSnake.getSnakeTailI()][KindSnake.getSnakeTailJ()] = "k";
+        if (KindSnake.getSnakeTailI() == Player.getI() && KindSnake.getSnakeTailJ() == Player.getJ()) {
+            gameBoard[KindSnake.getSnakeTailI()][KindSnake.getSnakeTailJ()] +="P";
+        }
+        
     }
 }
