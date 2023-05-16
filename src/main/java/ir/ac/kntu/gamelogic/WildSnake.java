@@ -12,10 +12,6 @@ public class WildSnake {
     public static void setPosition() {
         setSnakeHeadI();
         setSnakeHeadJ();
-        if(snakeHeadI==OrdinarySnake.getSnakeHeadI() && snakeHeadJ == OrdinarySnake.getSnakeHeadJ())
-        {
-            setPosition();
-        }
         setSnakeTailI();
         setSnakeTailJ();
     }
@@ -25,7 +21,7 @@ public class WildSnake {
     }
 
     public static void setSnakeHeadI() {
-        WildSnake.snakeHeadI = RandomHelper.nextInt(Board.getSize() - 2);
+        WildSnake.snakeHeadI = RandomHelper.nextInt(Board.getSize() - 1);
     }
 
     public static int getSnakeHeadJ() {
@@ -33,7 +29,22 @@ public class WildSnake {
     }
 
     public static void setSnakeHeadJ() {
-        WildSnake.snakeHeadJ = RandomHelper.nextInt(Board.getSize() - 1);
+        WildSnake.snakeHeadJ = RandomHelper.nextInt(Board.getSize());
+        if (snakeHeadI == 0 && snakeTailJ == Board.getSize() - 1) {
+            setSnakeHeadJ();
+        }
+        if (snakeHeadI == OrdinarySnake.getSnakeHeadI() && snakeHeadJ == OrdinarySnake.getSnakeHeadJ()) {
+            setPosition();
+        }
+        if (snakeHeadI == KindSnake.getSnakeHeadI() && snakeHeadJ == KindSnake.getSnakeHeadJ()) {
+            setPosition();
+        }
+        if (snakeHeadI == OrdinarySnake.getSnakeTailI() && snakeHeadJ == OrdinarySnake.getSnakeTailJ()) {
+            setPosition();
+        }
+        if (snakeHeadI == KindSnake.getSnakeTailI() && snakeHeadJ == OrdinarySnake.getSnakeTailJ()) {
+            setPosition();
+        }
     }
 
     public static int getSnakeTailI() {
@@ -54,6 +65,14 @@ public class WildSnake {
             WildSnake.snakeTailJ = RandomHelper.nextInt(Board.getSize());
         } else {
             WildSnake.snakeTailJ = RandomHelper.nextInt(Board.getSize() - 1) + 1;
+        }
+        if(snakeTailI==OrdinarySnake.getSnakeHeadI() && snakeTailJ==OrdinarySnake.getSnakeTailJ())
+        {
+            setPosition();
+        }
+        if(snakeTailI==KindSnake.getSnakeHeadI() && snakeTailJ==KindSnake.getSnakeTailJ())
+        {
+            setPosition();
         }
     }
 

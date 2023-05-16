@@ -20,7 +20,7 @@ public class OrdinarySnake {
     }
 
     public static void setSnakeHeadI() {
-        OrdinarySnake.snakeHeadI = RandomHelper.nextInt(Board.getSize() - 2);
+        OrdinarySnake.snakeHeadI = RandomHelper.nextInt(Board.getSize() - 1);
     }
 
     public static int getSnakeHeadJ() {
@@ -28,7 +28,10 @@ public class OrdinarySnake {
     }
 
     public static void setSnakeHeadJ() {
-        OrdinarySnake.snakeHeadJ = RandomHelper.nextInt(Board.getSize() - 1);
+        OrdinarySnake.snakeHeadJ = RandomHelper.nextInt(Board.getSize());
+        if (snakeHeadI == 0 && snakeTailJ == Board.getSize() - 1) {
+            setSnakeHeadJ();
+        }
     }
 
     public static int getSnakeTailI() {
@@ -49,6 +52,9 @@ public class OrdinarySnake {
             OrdinarySnake.snakeTailJ = RandomHelper.nextInt(Board.getSize());
         } else {
             OrdinarySnake.snakeTailJ = RandomHelper.nextInt(Board.getSize() - 1) + 1;
+        }
+        if (KindSnake.getSnakeHeadI() == snakeTailI && KindSnake.getSnakeHeadJ() == snakeTailJ) {
+            setSnakeTailJ();
         }
     }
 
