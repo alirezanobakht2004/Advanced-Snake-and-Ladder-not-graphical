@@ -10,22 +10,22 @@ public class Board {
 
     private static int size;
 
-    private static List<OrdinarySnake> Ordinary = new ArrayList<>();
+    private static List<OrdinarySnake> ordinary = new ArrayList<>();
 
-    private static List<KindSnake> Kind = new ArrayList<>();
+    private static List<KindSnake> kind = new ArrayList<>();
 
-    private static List<WildSnake> Wild = new ArrayList<>();
+    private static List<WildSnake> wild = new ArrayList<>();
 
     public static List<WildSnake> getWild() {
-        return Wild;
+        return wild;
     }
 
     public static List<KindSnake> getKind() {
-        return Kind;
+        return kind;
     }
 
     public static List<OrdinarySnake> getOrdinary() {
-        return Ordinary;
+        return ordinary;
     }
 
     public static void setGameBoard(String[][] gameBoard) {
@@ -75,7 +75,7 @@ public class Board {
                 System.out.print(gameBoard[o][k] + "|");
             }
             System.out.println();
-            for (int k = 0; k <2 * size; k++) {
+            for (int k = 0; k < 2 * size; k++) {
                 System.out.print("-");
             }
             System.out.println();
@@ -90,7 +90,7 @@ public class Board {
         System.out.println("Health: " + Player.getHealth());
         snakesNumber();
         ordinarySnakeHead();
-        KindSnakesHead();
+        kindSnakesHead();
         boardDraw();
     }
 
@@ -105,52 +105,52 @@ public class Board {
 
         for (int i = 0; i < a; i++) {
             OrdinarySnake tempOne = new OrdinarySnake();
-            Ordinary.add(tempOne);
+            ordinary.add(tempOne);
         }
 
         for (int j = 0; j < b; j++) {
             KindSnake tempTwo = new KindSnake();
-            Kind.add(tempTwo);
+            kind.add(tempTwo);
         }
 
         for (int k = 0; k < c; k++) {
             WildSnake tempThree = new WildSnake();
-            Wild.add(tempThree);
+            wild.add(tempThree);
         }
     }
 
     public void ordinarySnakeHead() {
-        for (int i = 0; i < Ordinary.size(); i++) {
-            Ordinary.get(i).setSnakeHeadI();
-            Ordinary.get(i).setSnakeHeadJ();
+        for (int i = 0; i < ordinary.size(); i++) {
+            ordinary.get(i).setSnakeHeadI();
+            ordinary.get(i).setSnakeHeadJ();
         }
     }
 
-    public void KindSnakesHead() {
-        for (int j = 0; j < Kind.size(); j++) {
-            Kind.get(j).setSnakeHeadI();
-            Kind.get(j).setSnakeHeadJ();
+    public void kindSnakesHead() {
+        for (int j = 0; j < kind.size(); j++) {
+            kind.get(j).setSnakeHeadI();
+            kind.get(j).setSnakeHeadJ();
         }
     }
 
     public void positionChange() {
         gameBoard[Player.getI()][Player.getJ()] += "P";
-        for (int i = 0; i < Ordinary.size(); i++) {
-            Ordinary.get(i).setPosition();
-            gameBoard[Ordinary.get(i).getSnakeHeadI()][Ordinary.get(i).getSnakeHeadJ()] += "O" + i;
-            gameBoard[Ordinary.get(i).getSnakeTailI()][Ordinary.get(i).getSnakeTailJ()] += "o" + i;
+        for (int i = 0; i < ordinary.size(); i++) {
+            ordinary.get(i).setPosition();
+            gameBoard[ordinary.get(i).getSnakeHeadI()][ordinary.get(i).getSnakeHeadJ()] += "O" + i;
+            gameBoard[ordinary.get(i).getSnakeTailI()][ordinary.get(i).getSnakeTailJ()] += "o" + i;
         }
 
-        for (int j = 0; j < Kind.size(); j++) {
-            Kind.get(j).setPosition();
-            gameBoard[Kind.get(j).getSnakeHeadI()][Kind.get(j).getSnakeHeadJ()] += "K" + j ;
-            gameBoard[Kind.get(j).getSnakeTailI()][Kind.get(j).getSnakeTailJ()] += "k" + j ;
+        for (int j = 0; j < kind.size(); j++) {
+            kind.get(j).setPosition();
+            gameBoard[kind.get(j).getSnakeHeadI()][kind.get(j).getSnakeHeadJ()] += "K" + j;
+            gameBoard[kind.get(j).getSnakeTailI()][kind.get(j).getSnakeTailJ()] += "k" + j;
         }
 
-        for (int k = 0; k < Wild.size(); k++) {
-            Wild.get(k).setPosition();
-            gameBoard[Wild.get(k).getSnakeHeadI()][Wild.get(k).getSnakeHeadJ()] += "W" + k ;
-            gameBoard[Wild.get(k).getSnakeTailI()][Wild.get(k).getSnakeTailJ()] += "w" + k ;
+        for (int k = 0; k < kind.size(); k++) {
+            wild.get(k).setPosition();
+            gameBoard[wild.get(k).getSnakeHeadI()][wild.get(k).getSnakeHeadJ()] += "W" + k;
+            gameBoard[wild.get(k).getSnakeTailI()][wild.get(k).getSnakeTailJ()] += "w" + k;
         }
 
     }
