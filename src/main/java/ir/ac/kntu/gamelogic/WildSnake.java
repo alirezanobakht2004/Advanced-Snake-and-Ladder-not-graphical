@@ -103,6 +103,12 @@ public class WildSnake {
             }
         }
 
+        for (int k = 0; k < Board.getWild().indexOf(this); k++) {
+            if (this.snakeTailI == Board.getWild().get(k).getSnakeHeadI()
+                    && this.snakeTailJ == Board.getWild().get(k).getSnakeHeadJ()) {
+                setPosition();
+            }
+        }
     }
 
     public void bite() {

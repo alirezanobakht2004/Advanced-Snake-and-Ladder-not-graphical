@@ -150,7 +150,7 @@ public class Board {
         for (int k = 0; k < Wild.size(); k++) {
             Wild.get(k).setPosition();
             gameBoard[Wild.get(k).getSnakeHeadI()][Wild.get(k).getSnakeHeadJ()] += "W" + k ;
-            gameBoard[Wild.get(k).getSnakeTailI()][Wild.get(k).getSnakeTailJ()] += "W" + k ;
+            gameBoard[Wild.get(k).getSnakeTailI()][Wild.get(k).getSnakeTailJ()] += "w" + k ;
         }
 
     }
