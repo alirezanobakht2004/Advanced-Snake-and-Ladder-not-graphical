@@ -122,6 +122,5 @@ public class Dice {
             Player.setI(Player.getI() + 2);
             bite();
         }
-
     }
 }

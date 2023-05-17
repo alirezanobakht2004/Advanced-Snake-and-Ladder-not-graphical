@@ -54,7 +54,17 @@ public class WildSnake {
                 setPosition();
             }
         }
+        for (int k = 0; k < Board.getWild().indexOf(this); k++) {
+            if (this.snakeHeadI == Board.getWild().get(k).getSnakeHeadI()
+                    && this.snakeHeadJ == Board.getWild().get(k).getSnakeHeadJ()) {
+                setPosition();
+            }
 
+            if (this.snakeHeadI == Board.getWild().get(k).getSnakeTailI()
+                    && this.snakeHeadJ == Board.getWild().get(k).getSnakeTailJ()) {
+                setPosition();
+            }
+        }
         if (this.snakeHeadI == Player.getI() && this.snakeHeadJ == Player.getJ()) {
             setPosition();
         }

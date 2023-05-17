@@ -67,11 +67,10 @@ public class OrdinarySnake {
                 this.setPosition();
             }
         }
-        for (int j = 0; j < Board.getOrdinary().indexOf(this); j++) {
-            if (this.snakeHeadI == Board.getOrdinary().get(j).getSnakeHeadI()
-                    && this.snakeHeadJ == Board.getOrdinary().get(j).getSnakeHeadJ()) {
-                this.setSnakeHeadI();
-                this.setSnakeHeadJ();
+        for (int j = 0; j < Board.getOrdinary().size(); j++) {
+            if (this.snakeTailI == Board.getOrdinary().get(j).getSnakeHeadI()
+                    && this.snakeTailJ == Board.getOrdinary().get(j).getSnakeHeadJ()) {
+                this.setPosition();
             }
         }
 
