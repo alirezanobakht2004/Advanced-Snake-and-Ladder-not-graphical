@@ -27,15 +27,17 @@ public class OrdinarySnake {
         return this.snakeHeadJ;
     }
 
-    public void setSnakeHeadJ(int last) {
+    public void setSnakeHeadJ() {
         this.snakeHeadJ = RandomHelper.nextInt(Board.getSize());
-        if (this.snakeHeadI == 0 && this.snakeHeadJ== Board.getSize() - 1) {
-            setSnakeHeadJ();
+        if (this.snakeHeadI == 0 && this.snakeHeadJ == Board.getSize() - 1) {
+            this.setSnakeHeadI();
+            this.setSnakeHeadJ();
         }
-        for(int i=0;i<last;i++)
-        {
-            if (this.snakeHeadI == Board.getOrdinary().get(i).getSnakeHeadI() && this.snakeTailJ == Board.getSize() - 1) {
-                setSnakeHeadJ();
+        for (int i = 0; i < Board.getOrdinary().indexOf(this); i++) {
+            if (this.snakeHeadI == Board.getOrdinary().get(i).getSnakeHeadI()
+                    && this.snakeHeadJ == Board.getOrdinary().get(i).getSnakeHeadJ()) {
+                this.setSnakeHeadI();
+                this.setSnakeHeadJ();
             }
         }
     }
@@ -60,11 +62,19 @@ public class OrdinarySnake {
             this.snakeTailJ = RandomHelper.nextInt(Board.getSize() - 1) + 1;
         }
         for (int i = 0; i < Board.getKind().size(); i++) {
-            if (Board.getKind().get(i).getSnakeHeadI() == this.snakeTailI && Board.getKind().get(i).getSnakeHeadJ() == this.snakeTailJ) {
-                setSnakeTailJ();
+            if (Board.getKind().get(i).getSnakeHeadI() == this.snakeTailI
+                    && Board.getKind().get(i).getSnakeHeadJ() == this.snakeTailJ) {
+                this.setPosition();
             }
         }
-        
+        for (int j = 0; j < Board.getOrdinary().indexOf(this); j++) {
+            if (this.snakeHeadI == Board.getOrdinary().get(j).getSnakeHeadI()
+                    && this.snakeHeadJ == Board.getOrdinary().get(j).getSnakeHeadJ()) {
+                this.setSnakeHeadI();
+                this.setSnakeHeadJ();
+            }
+        }
+
     }
 
     public void bite() {

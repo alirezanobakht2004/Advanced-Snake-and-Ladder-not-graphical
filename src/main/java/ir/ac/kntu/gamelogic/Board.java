@@ -75,7 +75,7 @@ public class Board {
                 System.out.print(gameBoard[o][k] + "|");
             }
             System.out.println();
-            for (int k = 0; k < 2 * size; k++) {
+            for (int k = 0; k <2 * size; k++) {
                 System.out.print("-");
             }
             System.out.println();
@@ -89,7 +89,8 @@ public class Board {
         size = n;
         System.out.println("Health: " + Player.getHealth());
         snakesNumber();
-        ordinarAndKindSnakesHead();
+        ordinarySnakeHead();
+        KindSnakesHead();
         boardDraw();
     }
 
@@ -118,11 +119,14 @@ public class Board {
         }
     }
 
-    public void ordinarAndKindSnakesHead() {
+    public void ordinarySnakeHead() {
         for (int i = 0; i < Ordinary.size(); i++) {
             Ordinary.get(i).setSnakeHeadI();
             Ordinary.get(i).setSnakeHeadJ();
         }
+    }
+
+    public void KindSnakesHead() {
         for (int j = 0; j < Kind.size(); j++) {
             Kind.get(j).setSnakeHeadI();
             Kind.get(j).setSnakeHeadJ();
@@ -139,14 +143,14 @@ public class Board {
 
         for (int j = 0; j < Kind.size(); j++) {
             Kind.get(j).setPosition();
-            gameBoard[Kind.get(j).getSnakeHeadI()][Kind.get(j).getSnakeHeadJ()] += "K" + j;
-            gameBoard[Kind.get(j).getSnakeTailI()][Kind.get(j).getSnakeTailJ()] += "k" + j;
+            gameBoard[Kind.get(j).getSnakeHeadI()][Kind.get(j).getSnakeHeadJ()] += "K" + j ;
+            gameBoard[Kind.get(j).getSnakeTailI()][Kind.get(j).getSnakeTailJ()] += "k" + j ;
         }
 
         for (int k = 0; k < Wild.size(); k++) {
             Wild.get(k).setPosition();
-            gameBoard[Wild.get(k).getSnakeHeadI()][Wild.get(k).getSnakeHeadJ()] += "W" + k;
-            gameBoard[Wild.get(k).getSnakeTailI()][Wild.get(k).getSnakeTailJ()] += "w" + k;
+            gameBoard[Wild.get(k).getSnakeHeadI()][Wild.get(k).getSnakeHeadJ()] += "W" + k ;
+            gameBoard[Wild.get(k).getSnakeTailI()][Wild.get(k).getSnakeTailJ()] += "W" + k ;
         }
 
     }

@@ -36,7 +36,15 @@ public class KindSnake {
         for (int i = 0; i < Board.getOrdinary().size(); i++) {
             if (Board.getOrdinary().get(i).getSnakeHeadI() == this.snakeHeadI
                     && Board.getOrdinary().get(i).getSnakeHeadJ() == this.snakeHeadJ) {
-                setSnakeHeadJ();
+                this.setSnakeHeadI();
+                this.setSnakeHeadJ();
+            }
+        }
+        for (int j = 0; j < Board.getKind().indexOf(this); j++) {
+            if (this.snakeHeadI == Board.getKind().get(j).getSnakeHeadI()
+                    && this.snakeHeadJ == Board.getKind().get(j).getSnakeHeadJ()) {
+                this.setSnakeHeadI();
+                this.setSnakeHeadJ();
             }
         }
 

@@ -57,63 +57,71 @@ public class Dice {
         System.out.println("Dice: " + DiceFaces.OneLeft);
         if (Player.getJ() - 1 >= 0) {
             Player.setJ(Player.getJ() - 1);
+            bite();
         }
-        bite();
+
     }
 
     public static void playerChangeOne() {
         System.out.println("Dice: " + DiceFaces.TwoLeft);
         if (Player.getJ() - 2 >= 0) {
             Player.setJ(Player.getJ() - 2);
+            bite();
         }
-        bite();
+
     }
 
     public static void playerChangeTwo() {
         System.out.println("Dice: " + DiceFaces.OneRight);
         if (Player.getJ() + 1 < Board.getGameBoard().length) {
             Player.setJ(Player.getJ() + 1);
+            bite();
         }
-        bite();
+
     }
 
     public static void playerChangeThree() {
         System.out.println("Dice: " + DiceFaces.TwoRight);
         if (Player.getJ() + 2 < Board.getGameBoard().length) {
             Player.setJ(Player.getJ() + 2);
+            bite();
         }
-        bite();
+
     }
 
     public static void playerChangeFour() {
         System.out.println("Dice: " + DiceFaces.OneUp);
         if (Player.getI() - 1 >= 0) {
             Player.setI(Player.getI() - 1);
+            bite();
         }
-        bite();
+
     }
 
     public static void playerChangeFive() {
         System.out.println("Dice: " + DiceFaces.TwoUp);
         if (Player.getI() - 2 >= 0) {
             Player.setI(Player.getI() - 2);
+            bite();
         }
-        bite();
+
     }
 
     public static void playerChangeSix() {
         System.out.println("Dice: " + DiceFaces.OneDown);
         if (Player.getI() + 1 < Board.getGameBoard().length) {
             Player.setI(Player.getI() + 1);
+            bite();
         }
-        bite();
+
     }
 
     public static void playerChangeSeven() {
         System.out.println("Dice: " + DiceFaces.TwoDown);
         if (Player.getI() + 2 < Board.getGameBoard().length) {
             Player.setI(Player.getI() + 2);
+            bite();
         }
-        bite();
+
     }
 }
