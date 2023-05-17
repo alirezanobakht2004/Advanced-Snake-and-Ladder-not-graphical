@@ -54,10 +54,10 @@ public class Board {
             }
         }
         positionChange();
-        gameBoard[0][size - 1] = "$";
-        gameBoard[Board.getGameBoard().length - 1][0] = "*";
+        gameBoard[0][size - 1] = "\033[1;92m" + "$" + "\033[0m";
+        gameBoard[Board.getGameBoard().length - 1][0] = "\033[1;96m" + "*" + "\033[0m";
         if (Player.getI() == Board.getGameBoard().length - 1 && Player.getJ() == 0) {
-            gameBoard[Board.getGameBoard().length - 1][0] = "*P";
+            gameBoard[Board.getGameBoard().length - 1][0] = "\033[1;96m" + "*P" + "\033[0m";
         }
         if (Player.getI() == 0 && Player.getJ() == size - 1) {
             System.out.println("\n" + "You Win!" + "\n");
@@ -72,11 +72,11 @@ public class Board {
                 if (gameBoard[o][k].equals("")) {
                     gameBoard[o][k] = " ";
                 }
-                System.out.print(gameBoard[o][k] + "|");
+                System.out.print(gameBoard[o][k] + "\033[1;91m" + "|" + "\033[0m");
             }
             System.out.println();
             for (int k = 0; k < 2 * size; k++) {
-                System.out.print("-");
+                System.out.print("\033[1;93m" + "-" + "\033[0m");
             }
             System.out.println();
         }
@@ -134,7 +134,7 @@ public class Board {
     }
 
     public void positionChange() {
-        gameBoard[Player.getI()][Player.getJ()] += "P";
+        gameBoard[Player.getI()][Player.getJ()] += "\033[1;96m" + "P" + "\033[0m";
         for (int i = 0; i < ordinary.size(); i++) {
             ordinary.get(i).setPosition();
             gameBoard[ordinary.get(i).getSnakeHeadI()][ordinary.get(i).getSnakeHeadJ()] += "O" + i;
