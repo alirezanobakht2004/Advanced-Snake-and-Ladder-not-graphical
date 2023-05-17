@@ -40,9 +40,17 @@ public class Dice {
     }
 
     public static void bite() {
-        OrdinarySnake.bite();
-        WildSnake.bite();
-        KindSnake.bite();
+        for (int i = 0; i < Board.getOrdinary().size(); i++) {
+            Board.getOrdinary().get(i).bite();
+        }
+
+        for (int j = 0; j < Board.getKind().size(); j++) {
+            Board.getKind().get(j).bite();
+        }
+
+        for (int k = 0; k < Board.getWild().size(); k++) {
+            Board.getWild().get(k).bite();
+        }
     }
 
     public static void playerChangeZero() {

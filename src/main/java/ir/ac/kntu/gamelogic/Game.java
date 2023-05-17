@@ -4,14 +4,16 @@ import java.util.Scanner;
 
 public class Game {
 
-    public static void gameStart() {
+    public void gameStart() {
         Scanner input = new Scanner(System.in);
         System.out.println("Write DICE and enter to see your chance:");
         String dice = input.nextLine();
         if (dice.equals("DICE")) {
             Dice.diceChange();
             System.out.println("Health: " + Player.getHealth());
-            Board.boardDraw();
+            Board x =new Board();
+            x.boardDraw();
+            //Board.boardDraw();
             gameStart();
         }
     }
