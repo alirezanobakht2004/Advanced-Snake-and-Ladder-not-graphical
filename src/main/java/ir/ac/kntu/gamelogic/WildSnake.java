@@ -91,7 +91,7 @@ public class WildSnake {
         }
         for (int i = 0; i < Board.getOrdinary().size(); i++) {
             if (this.snakeTailI == Board.getOrdinary().get(i).getSnakeHeadI()
-                    && this.snakeTailJ == Board.getOrdinary().get(i).getSnakeTailJ()) {
+                    && this.snakeTailJ == Board.getOrdinary().get(i).getSnakeHeadJ()) {
                 setPosition();
             }
         }
